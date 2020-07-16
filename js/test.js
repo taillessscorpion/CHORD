@@ -18,8 +18,6 @@
 
 
 
-
-
 // // // create the audio context
 // const audioContext = new AudioContext();
 // // create a buffer source node
@@ -129,7 +127,7 @@
 // drawFrequencyBar();
 // console.log(analyser)
 
-dataLoaded  = localStorage.getItem("testData1");
+dataLoaded = localStorage.getItem("test.json");
 data = JSON.parse(dataLoaded);
 
 console.log(data);
@@ -140,55 +138,55 @@ console.log(data);
 
 
 
-var clearNumber = 0;
-var handledData = []
-for(i=0; i<data.length; i++) {
-    if(handledData.length === 0) {
-        const newData = {
-            db: data[i].decibels,
-            hz: data[i].hz,
-            ps: i,
-        }
-        handledData.push(newData);
-    } else {
-        if(data[i].decibels != handledData[handledData.length-1].decibels && data[i].hz != handledData[handledData.length-1].hz) {
-            const newData = {
-                db: data[i].decibels,
-                hz: data[i].hz,
-                ps: i,
-            }
-            handledData.push(newData);
-        }
-    }
-}
-for(x=0;x<handledData.length;x++) {
-    if(x!=handledData.length-1) {
-        handledData[x] = {
-            db: handledData[x].db,
-            hz: handledData[x].hz,
-            // sec: (handledData[x+1].ps - handledData[x].ps)*254/171167
-            sec: (handledData[x+1].ps - handledData[x].ps)*224/12695
-        }
-    } else {
-        handledData[x] = {
-            db: handledData[x].db,
-            hz: handledData[x].hz,
-            // sec: (data.length - handledData[x].ps+1)*254/171167
-            sec: (data.length - handledData[x].ps+1)*224/12695
-        }
-        console.log(handledData[x])
-    }
-}
-var totalSecond = 0;
-for(one of handledData) {
-    totalSecond += one.sec
-}
-var totalHz = 0;
-for(one of handledData) {
-    totalHz += (one.hz*one.sec)
-}
-let averangeHz = totalHz/totalSecond
-console.log(averangeHz, totalSecond , handledData);
+// var clearNumber = 0;
+// var handledData = []
+// for (i = 0; i < data.length; i++) {
+//     if (handledData.length === 0) {
+//         const newData = {
+//             db: data[i].decibels,
+//             hz: data[i].hz,
+//             ps: i,
+//         }
+//         handledData.push(newData);
+//     } else {
+//         if (data[i].decibels != handledData[handledData.length - 1].decibels && data[i].hz != handledData[handledData.length - 1].hz) {
+//             const newData = {
+//                 db: data[i].decibels,
+//                 hz: data[i].hz,
+//                 ps: i,
+//             }
+//             handledData.push(newData);
+//         }
+//     }
+// }
+// for (x = 0; x < handledData.length; x++) {
+//     if (x != handledData.length - 1) {
+//         handledData[x] = {
+//             db: handledData[x].db,
+//             hz: handledData[x].hz,
+//             // sec: (handledData[x+1].ps - handledData[x].ps)*254/171167
+//             sec: (handledData[x + 1].ps - handledData[x].ps) * 224 / 12695
+//         }
+//     } else {
+//         handledData[x] = {
+//             db: handledData[x].db,
+//             hz: handledData[x].hz,
+//             // sec: (data.length - handledData[x].ps+1)*254/171167
+//             sec: (data.length - handledData[x].ps + 1) * 224 / 12695
+//         }
+//         console.log(handledData[x])
+//     }
+// }
+// var totalSecond = 0;
+// for (one of handledData) {
+//     totalSecond += one.sec
+// }
+// var totalHz = 0;
+// for (one of handledData) {
+//     totalHz += (one.hz * one.sec)
+// }
+// let averangeHz = totalHz / totalSecond
+// console.log(averangeHz, totalSecond, handledData);
 
 
 
@@ -199,8 +197,12 @@ console.log(averangeHz, totalSecond , handledData);
 
 
 /// save
-// dataJSON = JSON.stringify(decibel);
-// localStorage.setItem("testData", dataJSON);
+// const test1 = {
+//     key: 0,
+//     test: 'work'
+// }
+// dataJSON = JSON.stringify(test1);
+// localStorage.setItem("test.json", dataJSON);
 
 
 

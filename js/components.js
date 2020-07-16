@@ -58,3 +58,9 @@ components.loginScreen = `
 <div class="alert">ALERT</div>
 <div class="alert" id="alertTitle">A</div>
 </div>`
+components.tempoMeter = `
+    <div class="topBar">Tempo meter<i id="tempoCloseBtn" class="fa fa-window-close" aria-hidden="true"></i></div>
+    <div id="beatPad"></div>
+    <div class="tempoValue"></div>
+    <div class="tempoUnit"></div>
+`
