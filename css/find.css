@@ -1,0 +1,178 @@
+.findContainer {
+    background-image: url(../images/findBackground.jpg);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#musicSheetContainer {
+    max-height: 80%;
+    margin-top: 10%;
+    height: 800px;
+    width: 90vw;
+    position: absolute;
+    bottom: 0px;
+    background-image: url(../images/musicSheet.png);
+    background-size: cover;
+    z-index: 1;
+}
+#musicSheetContainer:focus-within {
+    z-index: 3;
+}
+
+#pianoKeyboardContainer {
+    width: 95vw;
+    height: 150px;
+    position: absolute;
+    border-radius: 10px;
+    border: 1px solid black;
+    bottom: 5px;
+    z-index: 4;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+#pianoKeyboardContainer img {
+    width: 100%;
+    height: auto;
+
+}
+#guitarFretboardContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 0;
+}
+#guitarFretboardContainer img {
+    width: 100%;
+    height: auto;
+}
+#tempoMeterContainer{
+    height: 150px;
+    width: 130px;
+    background-color: rgba(0, 0, 0, 0.7);
+    right: 20px;
+    top: 45px;
+    padding: 5px;
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 6;
+}
+#noteMeterContainer {
+    height: 100vh;
+    width: 150px;
+    max-width: 20%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    align-items: flex-end;
+    z-index: 1;
+}
+#noteMeterContainer:hover {
+    z-index: 5;
+}
+
+#mediaContainer{
+    height: calc(30vh - 45px);
+    width: 300px;
+    max-width: 30%;
+    background-color: rgba(155, 155, 155, 0.753);
+    position: fixed;
+    left: 0;
+    top: 45px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 2;
+}
+#missionTagContainer{
+    height: calc(70vh - 5px);
+    width: 250px;
+    max-width: 30%;
+    background-color: rgba(192, 189, 189, 0.753);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border-top-right-radius: 10px;
+    z-index: 2;
+}
+#missionTagContainer:hover {
+    z-index: 5;
+}
+
+.findContainer .functionBtn {
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    display: block;
+    background-color: rgb(27, 123, 233);
+    top: 10px;
+    border-radius: 5px;
+    z-index: 10;
+}
+.findContainer .functionBtn:hover {
+    background-color: rgb(208, 230, 255);
+
+}
+.findContainer .functionBtn:active {
+    background-color: rgb(255, 66, 66);
+}
+
+
+
+#infoBtn {
+    left: 5px;
+    background-image: url(../images/infoBtn.png);
+    background-size: cover;
+}
+
+#mediaBtn {
+    left: 40px;
+    background-image: url(../images/mediaBtn.png);
+    background-size: cover;
+}
+
+#keyboardBtn {
+    right: 105px;
+    background-image: url(../images/keyboardBtn.png);
+    background-size: cover;
+}
+
+#tempoBtn {
+    right: 70px;
+    background-image: url(../images/tempoMeterBtn.jpg);
+    background-size: cover;
+}
+
+#frequencyBtn {
+    right: 35px;
+    background-image: url(../images/frequencyMeterBtn.png);
+    background-size: cover;
+}
+.closeBtn {
+    position: absolute;
+    color: rgb(235, 235, 235);
+    background-color: rgb(202, 4, 4);
+    border-radius: 3px;
+    height: 13px;
+    line-height: 13px;
+}
+.closeBtn:hover {
+    background-color: white;
+    color: rgb(202, 0, 0);
+}
+.closeBtn:active {
+    color: white;
+    background-color: red;
+}

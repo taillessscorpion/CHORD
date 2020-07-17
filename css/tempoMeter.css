@@ -1,0 +1,38 @@
+#tempoMeterContainer .topBar {
+    height: 20px;
+    width: 100%;
+    color: rgb(157, 207, 211);
+    
+}
+#tempoCloseBtn {
+    right: 5px;
+    top: 5px;
+}
+
+
+
+#beatPad {
+    height: 120px;
+    width: 120px;
+    background-color: rgba(0, 124, 124, 0.5);
+    border-radius: 10px;
+    z-index: 3;
+}
+#tempoMeterContainer .tempoValue {
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 40px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+#tempoMeterContainer .tempoUnit {
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}

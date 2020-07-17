@@ -32,7 +32,8 @@ components.registerSrceen = `
 <div id="alertWrapper">
     <div class="alert">ALERT</div>
     <div class="alert" id="alertTitle">A</div>
-</div>`
+</div>
+`
 components.loginScreen = `
 <div class="loginContainer">
 <div class="loginForm">
@@ -57,10 +58,26 @@ components.loginScreen = `
 <div id="alertWrapper">
 <div class="alert">ALERT</div>
 <div class="alert" id="alertTitle">A</div>
-</div>`
+</div>
+`
 components.tempoMeter = `
-    <div class="topBar">Tempo meter<i id="tempoCloseBtn" class="fa fa-window-close" aria-hidden="true"></i></div>
+    <div class="topBar">Tempo meter<i id="tempoCloseBtn" class="fa fa-window-close closeBtn" aria-hidden="true"></i></div>
     <div id="beatPad"></div>
     <div class="tempoValue"></div>
     <div class="tempoUnit"></div>
+`
+components.frequencyMeter = `
+<div class="noteWrapper noteActive">
+    <div class="noteOctave"></div>
+    <div class="noteName"></div>
+    <div class="noteLoudness"></div>
+</div>
+`
+components.pianoKeyboard = `
+<div id="keyboardOptional">
+    <i id="keyboardCloseBtn" class="fa fa-window-close closeBtn" aria-hidden="true"></i>
+    <div id='guitarSoundBtn' title="GUITAR SOUND" class="keyboardFunctionBtn"></div>
+    <div id='pianoSoundBtn' title="PIANO SOUND" class="keyboardFunctionBtn"></div>
+</div>
+<div id="pianoKeyboard"></div>
 `

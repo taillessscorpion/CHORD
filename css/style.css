@@ -5,6 +5,7 @@
     box-sizing: border-box;
     overflow: hidden;
     cursor: default;
+    user-select: none;
 }
 i {
     cursor: pointer;
@@ -12,7 +13,7 @@ i {
 #app {
     height: 100vh;
     width: 100vw;
-    
+    background-color: rgba(71, 2, 0, 0.267);
 }
 
 .showPassword {

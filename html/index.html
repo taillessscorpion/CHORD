@@ -9,12 +9,62 @@
     <link rel="styleSheet" href="../css/style.css">
     <link rel="styleSheet" href="../css/register.css">
     <link rel="styleSheet" href="../css/login.css">
+    <link rel="styleSheet" href="../css/find.css">
+    <link rel="styleSheet" href="../css/noteMeter.css">
+    <link rel="styleSheet" href="../css/tempoMeter.css">
+    <link rel="styleSheet" href="../css/piano.css">
+    <link rel="styleSheet" href="../css/guitar.css">
 </head>
 
 <body>
     <div id="app">
 
         
+
+        <div class="findContainer">
+            <div id="musicSheetContainer"></div>
+            <div id="pianoKeyboardContainer">
+                <div id="keyboardOptional">
+                    <i id="keyboardCloseBtn" class="fa fa-window-close closeBtn" aria-hidden="true"></i>
+                    <div id='guitarSoundBtn' title="GUITAR SOUND" class="keyboardFunctionBtn"></div>
+                    <div id='pianoSoundBtn' title="PIANO SOUND" class="keyboardFunctionBtn"></div>
+                </div>
+                <div id="pianoKeyboard"></div>
+                <!-- <img alt="PIANO KEYBOARD" src="../images/pianoKeyboard.jpg"> -->
+            </div>
+            <div id="guitarFretboardContainer">
+                <img src="../images/guitarFretboard.png" alt="GUITAR FRETBOARD">
+            </div>
+            
+            <!-- <div id="noteMeterContainer">
+                <div class="noteWrapper noteActive">
+                    <div class="noteOctave"></div>
+                    <div class="noteName"></div>
+                    <div class="noteLoudness">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="crest"></div>
+                    </div>
+                </div>
+            </div> -->
+            <div id="mediaContainer"></div>
+            <div id="missionTagContainer"></div>
+            <div id="infoBtn" title="User's information" class="functionBtn"></div>
+            <div id="mediaBtn" title="User's information" class="functionBtn"></div>
+            <div id="keyboardBtn" title="Piano keyboard" class="functionBtn"></div>
+            <div id="tempoBtn" title="Tempo meter" class="functionBtn"></div>
+            <div id="frequencyBtn" title="Note meter" class="functionBtn"></div>
+        </div>
+        <div id="alertWrapper">
+            <div class="alert">ALERT</div>
+            <div class="alert" id="alertTitle">A</div>
+        </div>
 
 
         <!-- <div class="loginContainer">
@@ -42,7 +92,9 @@
             <div class="alert" id="alertTitle">A</div>
         </div> -->
 
-        <div class="registerContainer">
+
+
+        <!-- <div class="registerContainer">
             <div class="registerForm">
                 <div id="appLogo"><div id="appName">CHORD</div><div id="appSlogan">Share your music, share your life</div></div>
                 <div id="formRegisterContainer">
@@ -74,7 +126,7 @@
         <div id="alertWrapper">
             <div class="alert">ALERT</div>
             <div class="alert" id="alertTitle">A</div>
-        </div>
+        </div> -->
 
 
 
@@ -83,8 +135,12 @@
 
 
     </div>
-    <script src="../js/view.js"></script>
+    <script src="../js/CHORDLibrary/noteLibrary.js"></script>
+    <script src="../js/CHORDLibrary/tempoMeterLibrary.js"></script>
+    <script src="../js/CHORDLibrary/frequencyMeterLibrary.js"></script>
     <script src="../js/components.js"></script>
+    <script src="../js/sound.js"></script>
+    <script src="../js/view.js"></script>
     <script src="../js/controller.js"></script>
     <script src="../js/model.js"></script>
     <script src="../js/index.js"></script>

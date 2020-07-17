@@ -1,0 +1,63 @@
+#noteMeterContainer .noteWrapper {
+    height: calc(100% / 65);
+    max-width: 100%;
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bolder;
+    color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#noteMeterContainer .noteWrapper .noteOctave {
+    height: 100%;
+    width: 7px;
+    padding-right: 2px;
+    font-size: 8px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+#noteMeterContainer .noteWrapper .noteName {
+    height: 100%;
+    width: 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 5px;
+    font-size: 10px;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+
+
+#noteMeterContainer .noteWrapper .noteLoudness {
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3px;
+}
+#noteMeterContainer .noteWrapper .dot {
+    height: 5px;
+    width: 5px;
+    display: block;
+    margin-left: 3px;
+    background-color: rgb(211, 211, 211);
+    border-radius: 50%;
+}
+#noteMeterContainer .noteWrapper .crest {
+    height: 8px;
+    width: 8px;
+    display: block;
+    margin-left: 3px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
