@@ -51,7 +51,7 @@ request.onload = () => {
         // when the audio is decoded play the sound
         sourceNode.buffer = buffer;
         sourceNode.start();
-    }, e => { console.log(e) });
+    });
 }
 request.send();
 

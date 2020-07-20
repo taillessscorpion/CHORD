@@ -81,3 +81,14 @@ components.pianoKeyboard = `
 </div>
 <div id="pianoKeyboard"></div>
 `
+components.guitarKeyboard = `
+<div id="keyboardOptional">
+    <i id="keyboardCloseBtn" class="fa fa-window-close closeBtn" aria-hidden="true"></i>
+    <div id='guitarSoundBtn' title="GUITAR SOUND" class="keyboardFunctionBtn"></div>
+    <div id='pianoSoundBtn' title="PIANO SOUND" class="keyboardFunctionBtn"></div>
+</div>
+<div id="guitarKeyboard"></div>
+`
+components.guitarFretboard = `
+<img src="../images/guitarFretboard.png" alt="GUITAR FRETBOARD">
+`

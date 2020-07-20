@@ -106,6 +106,7 @@ noteLibrary.getNoteScaleToTwelveFromClassName = noteClassName => {
     if(noteClassName === 'A') return 10
     if(noteClassName === 'A#' || noteClassName === 'Bb') return 11
     if(noteClassName === 'B') return 12
+    return -1
 }
 //// return octave from 1 to 12 //// in general, we're rarely using octave over 7
 /// human's voice is about from octave 2 to 5 or maybe 6 only
@@ -209,7 +210,7 @@ noteLibrary.getGuitarInstrumentPosition = noteCode => {
 }
 /// return exactly a link to connect to audio source
 noteLibrary.getGuitarInstrumentLink = noteCode => {
-    if (noteCode < 17 || noteCode > 55) return ''
+    if (noteCode < 17 || noteCode > 53) return ''
     return `../sounds/guitar/${noteLibrary.getNoteFullName(noteCode).replace('#', '-')}.ogg`
 }
 noteLibrary.getPianoInstrumentLink = noteCode => {
@@ -224,6 +225,9 @@ noteLibrary.getPianoInstrumentKeyColor = noteCode => {
         return 'black'
     }
 }
+
+
+
 
 
 noteLibrary.getMajorScale = noteCode => {

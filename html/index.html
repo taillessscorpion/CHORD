@@ -12,7 +12,7 @@
     <link rel="styleSheet" href="../css/find.css">
     <link rel="styleSheet" href="../css/noteMeter.css">
     <link rel="styleSheet" href="../css/tempoMeter.css">
-    <link rel="styleSheet" href="../css/piano.css">
+    <link rel="styleSheet" href="../css/keyBoard.css">
     <link rel="styleSheet" href="../css/guitar.css">
 </head>
 
@@ -22,37 +22,11 @@
         
 
         <div class="findContainer">
-            <div id="musicSheetContainer"></div>
-            <div id="pianoKeyboardContainer">
-                <div id="keyboardOptional">
-                    <i id="keyboardCloseBtn" class="fa fa-window-close closeBtn" aria-hidden="true"></i>
-                    <div id='guitarSoundBtn' title="GUITAR SOUND" class="keyboardFunctionBtn"></div>
-                    <div id='pianoSoundBtn' title="PIANO SOUND" class="keyboardFunctionBtn"></div>
-                </div>
-                <div id="pianoKeyboard"></div>
-                <!-- <img alt="PIANO KEYBOARD" src="../images/pianoKeyboard.jpg"> -->
+            <div id="mainContainer">
+                <div class="topMain"></div>
+                <div class="botMain"></div>
+
             </div>
-            <div id="guitarFretboardContainer">
-                <img src="../images/guitarFretboard.png" alt="GUITAR FRETBOARD">
-            </div>
-            
-            <!-- <div id="noteMeterContainer">
-                <div class="noteWrapper noteActive">
-                    <div class="noteOctave"></div>
-                    <div class="noteName"></div>
-                    <div class="noteLoudness">
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="crest"></div>
-                    </div>
-                </div>
-            </div> -->
             <div id="mediaContainer"></div>
             <div id="missionTagContainer"></div>
             <div id="infoBtn" title="User's information" class="functionBtn"></div>
@@ -136,6 +110,7 @@
 
     </div>
     <script src="../js/CHORDLibrary/noteLibrary.js"></script>
+    <script src="../js/CHORDLibrary/chordLibrary.js"></script>
     <script src="../js/CHORDLibrary/tempoMeterLibrary.js"></script>
     <script src="../js/CHORDLibrary/frequencyMeterLibrary.js"></script>
     <script src="../js/components.js"></script>

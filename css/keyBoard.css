@@ -1,0 +1,134 @@
+#keyboardOptional {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(71, 71, 71, 0.8), rgba(131, 131, 131, 0.9));
+    height: 100%;
+    width: calc(200% / 52);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#keyboardCloseBtn {
+    top: 5px;
+    left: 5px;
+}
+#pianoSoundBtn {
+    background-image: url(../images/pianoBtn.png);
+    background-size: cover;
+}
+#guitarSoundBtn {
+    background-image: url(../images/guitarBtn.jpg);
+    background-size: cover;
+}
+.keyboardFunctionBtn {
+    margin-top: 10px;
+    height: 25px;
+    width: 25px;
+    border-radius: 4px;
+    background-color: rgb(161, 161, 161);
+    
+}
+.keyboardFunctionBtn:hover {
+    background-color: rgba(126, 178, 255, 0.5);
+}
+.keyboardFunctionBtn:active {
+    background-color: rgb(238, 238, 238);
+}
+
+
+
+#pianoKeyboard {
+    height: 100%;
+    width: calc(5000% / 52);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image:  linear-gradient(rgb(70, 70, 70, 0.5), rgb(150, 150, 150, 0.9));
+}
+#guitarKeyboard {
+    height: 100%;
+    width: calc(5000% / 52);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image:  linear-gradient(rgb(70, 70, 70, 0.5), rgb(150, 150, 150, 0.9));
+}
+.keysWrapper {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    height: 100%;
+}
+.keysWrapper .whiteKey {
+    height: 100%;
+    border: 1px solid rgba(199, 199, 199, 0.2);
+    font-size: 15px;
+}
+.keysWrapper .whiteKey .topKey {
+    height: 92%;
+    background-image: linear-gradient(rgba(214, 214, 214, 0.4), rgba(255, 255, 255, 0.7));
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.keysWrapper .whiteKey .botKey {
+    height: 8%;
+    background-image: linear-gradient(rgba(150, 150, 150, 0.5), rgba(255, 255, 255, 0.6));
+    border-top: 1px solid rgb(41, 41, 41, 0.5);
+}
+
+.keysWrapper .blackKey {
+    position: absolute;
+    border: 2px solid rgba(41, 41, 41, 0.2);
+    background-color: rgb(100, 100, 100);
+    height: 65%;
+    top: 10%;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+}
+.keysWrapper .blackKey .topKey{
+    height: 82%;
+    background-image: linear-gradient(to top,rgb(180, 180, 180, 0.3), rgb(40, 40, 40, 0.5), rgb(40, 40, 40, 0.6));
+    border-bottom-right-radius: 1px;
+    border-bottom-left-radius: 1px;
+}
+.keysWrapper .blackKey .botKey{
+    height: 18%;
+    background-image: linear-gradient(to top, rgb(40, 40, 40, 0.5), rgb(130, 130, 130, 0.4));
+}
+
+.keysWrapper .blackKey .noteKey{
+    color: white;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.keysWrapper .whiteKey .noteKey{
+    font-size: 12px;
+}
+.keysWrapper .whiteKey .noteName{
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end;
+}
+.keysWrapper .whiteKey .noteName .className{
+    font-size: 15px;
+}
+.keysWrapper .whiteKey .noteName .octave{
+    font-size: 10px;
+}
+.holdingWhiteKey {
+    height: 95% !important;
+    background-image: linear-gradient(rgb(200,200,200, 0.4), rgb(180,180,180, 0.7)) !important;
+    color: rgb(250, 250, 250);
+}
+.holdingBlackKey {
+    height: 93% !important;
+    background-image: linear-gradient(rgb(100,100,100,0.6), rgb(150,150,150,0.9)) !important;
+    color: rgb(250, 250, 250);
+}

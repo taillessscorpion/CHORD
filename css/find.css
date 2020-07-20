@@ -8,16 +8,29 @@
     justify-content: center;
     position: relative;
 }
-#musicSheetContainer {
-    max-height: 80%;
-    margin-top: 10%;
-    height: 800px;
-    width: 90vw;
+#mainContainer {
+    height: 100%;
+    width: 80vw;
     position: absolute;
     bottom: 0px;
-    background-image: url(../images/musicSheet.png);
+    background-image: linear-gradient(to top, rgba(162, 218, 255, 0.5), rgba(253, 247, 194, 0.8));
+    box-shadow: 0px 50vh 50vw 5vw rgba(162, 218, 255, 0.6), 0px -50vh 50vw 5vw rgba(253, 247, 194, 1);
     background-size: cover;
-    z-index: 1;
+    z-index: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 5vh;
+}
+#mainContainer .topMain{
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 2vh;
+}
+#mainContainer .botMain{
+    flex-grow: 1;
+    width: 100%;
+    background-color: white;
 }
 #musicSheetContainer:focus-within {
     z-index: 3;
@@ -28,8 +41,8 @@
     height: 150px;
     position: absolute;
     border-radius: 10px;
-    border: 1px solid black;
-    bottom: 5px;
+    border: 2px solid black;
+    bottom: 10px;
     z-index: 4;
     display: flex;
     flex-flow: row;
@@ -44,9 +57,8 @@
 #guitarFretboardContainer{
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 0;
+    width: 105vw;
+    z-index: 1;
 }
 #guitarFretboardContainer img {
     width: 100%;
@@ -55,7 +67,7 @@
 #tempoMeterContainer{
     height: 150px;
     width: 130px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-image: linear-gradient(rgb(50, 50, 50, 0.5), rgb(0, 0, 0, 0.8));
     right: 20px;
     top: 45px;
     padding: 5px;
@@ -95,6 +107,11 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     z-index: 2;
+
+
+
+
+    opacity: 0;
 }
 #missionTagContainer{
     height: calc(70vh - 5px);
@@ -105,11 +122,13 @@
     left: 0;
     bottom: 0;
     border-top-right-radius: 10px;
+
     z-index: 2;
+    opacity: 0;
 }
-#missionTagContainer:hover {
+/* #missionTagContainer:hover {
     z-index: 5;
-}
+} */
 
 .findContainer .functionBtn {
     position: fixed;
@@ -175,4 +194,45 @@
 .closeBtn:active {
     color: white;
     background-color: red;
+}
+
+
+
+@keyframes guitarFretboardRunToRight {
+    0% {
+        left: -100vw;
+        opacity: 0.2;
+        z-index: 10
+    }
+    30% {
+        opacity: 0.9;
+        z-index: 9
+    }
+    80% {
+        opacity: 1;
+        z-index: 8
+    }
+    100% {
+        left: 0vw;
+    }
+}
+@keyframes guitarFretboardRunToLeft {
+    0% {
+        left: 0;
+        
+    }
+    30% {
+        opacity: 1;
+        z-index: 8
+    }
+    80% {
+        
+        opacity: 0.9;
+        z-index: 9
+    }
+    100% {
+        left: -100vw;
+        opacity: 0.2;
+        z-index: 10
+    }
 }
