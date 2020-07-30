@@ -20,25 +20,11 @@ chordLibrary.getChordCodeFromDetails = (chordName, chordType, chordRange) => {
 chordLibrary.getChordCodeFromDetailsCode = (chordNameCode, chordTypeCode, chordRangeCode) => {
     if (chordRangeCode === undefined) chordRangeCode = 0
     if(chordTypeCode != -1 && chordLibrary.chordRanges.indexOf(chordRangeCode) != -1 && chordNameCode != -1) {
-        if(chordTypeCode != 3 && chordRangeCode != 2 && chordRangeCode != 4) {
-            return `${utils.fullfillDateMonth(chordNameCode)}${chordTypeCode}${utils.fullfillDateMonth(chordRangeCode)}`
-        } else if(chordTypeCode == 3) {
-            return `${utils.fullfillDateMonth(chordNameCode)}${chordTypeCode}${utils.fullfillDateMonth(chordRangeCode)}`
-        }
+        return `${utils.fullfillDateMonth(chordNameCode)}${chordTypeCode}${utils.fullfillDateMonth(chordRangeCode)}`
     }
     return -1
 }
 
-
-chordLibrary.getChordNameCodeFromChordCode = chordCode => {
-    return chordNameCode = parseInt(chordCode.slice(0, 2))
-}
-chordLibrary.getChordTypeCodeFromChordCode = chordCode => {
-    return chordTypeCode = parseInt(chordCode.slice(2, 4))
-}
-chordLibrary.getChordRangeCodeFromChordCode = chordCode => {
-    return chordRangeCode = parseInt(chordCode.slice(4, 6))
-}
 
 chordLibrary.getChordNameFromFullName = chordFullName => {
     if(chordFullName.indexOf('#') === 1) {
@@ -83,17 +69,63 @@ chordLibrary.getChordRangeFromFullName = chordFullName => {
     }
 }
 
+
+///// from chord code take infomation
+//// chord code is a string has length is five
+chordLibrary.getChordNameCodeFromChordCode = chordCode => {
+    return parseInt(chordCode.slice(0, 2))
+}
+chordLibrary.getChordTypeCodeFromChordCode = chordCode => {
+    return parseInt(chordCode.slice(2, 3))
+}
+chordLibrary.getChordRangeCodeFromChordCode = chordCode => {
+    return parseInt(chordCode.slice(3, 5))
+}
+
+
+
+chordLibrary.getChordFullNameFromChordCode = chordCode => {
+    const chordNameCode = chordLibrary.getChordNameCodeFromChordCode(chordCode)
+    const chordTypeCode = chordLibrary.getChordTypeCodeFromChordCode(chordCode)
+    const chordRangeCode = chordLibrary.getChordRangeCodeFromChordCode(chordCode)
+    return chordLibrary.getChordFullNameFromDetailCode(chordNameCode, chordTypeCode, chordRangeCode)
+}
+chordLibrary.getChordFullNameFromDetailCode = (chordNameCode, chordTypeCode, chordRangeCode) => {
+    const chordName = noteLibrary.getNoteClassName(chordNameCode)
+    let chordType = ''
+    let chordRange = ''
+    if (chordTypeCode === 1) chordType = 'm'
+    else if (chordTypeCode === 2) chordType = 'maj'
+    else if(chordTypeCode > 2) chordType = chordLibrary.chordTypes[chordTypeCode]
+    if(chordRangeCode > 0 && chordLibrary.chordRanges.indexOf(chordRangeCode) != -1)  chordRange = chordRangeCode
+    return chordName + chordType + chordRange
+}
+
+
 chordLibrary.getChordNoteOnPiano = chordCode => {
-    // const chordName
+    const chordNameCode = chordLibrary.getChordNameCodeFromChordCode(chordCode)
+    const chordTypeCode = chordLibrary.getChordTypeCodeFromChordCode(chordCode)
+    const chordRangeCode = chordLibrary.getChordRangeCodeFromChordCode(chordCode)
+    chordNotePostion = chordLibrary.getChordNotePosition(chordTypeCode, chordRangeCode)
+    const chordNotes = []
+    for(one of chordNotePostion) {
+        one += chordNameCode-1
+        chordNotes.push(one)
+    }
+    return {
+        notes: chordNotes,
+        id: chordCode
+    }
+
 }
 
 chordLibrary.getChordNotePosition = (chordTypeCode, chordRangeCode) => {
     if(chordTypeCode === 0) return chordLibrary.getBasisChordNote(chordRangeCode)
-    else if(chordTypeCode === 1) return chordLibrary.getBasisChordNote(chordRangeCode)
-    else if(chordTypeCode === 2) return chordLibrary.getBasisChordNote(chordRangeCode)
-    else if(chordTypeCode === 3) return chordLibrary.getBasisChordNote(chordRangeCode)
-    else if(chordTypeCode === 4) return chordLibrary.getBasisChordNote(chordRangeCode)
-    else if(chordTypeCode === 5) return chordLibrary.getBasisChordNote(chordRangeCode)
+    else if(chordTypeCode === 1) return chordLibrary.getMajorChordNote(chordRangeCode)
+    else if(chordTypeCode === 2) return chordLibrary.getMinorChordNote(chordRangeCode)
+    else if(chordTypeCode === 3) return chordLibrary.getSusChordNote(chordRangeCode)
+    else if(chordTypeCode === 4) return chordLibrary.getAugChordNote(chordRangeCode)
+    else if(chordTypeCode === 5) return chordLibrary.getDimChordNote(chordRangeCode)
 }
 
 
@@ -147,12 +179,42 @@ chordLibrary.getMajorHighRangeChord = chordRangeCode => {
     else if(chordRangeCode === 11) return [12, 15, 18]
 }
 
-for(n=0;n<12;n++) {
-    for(t=0;t<6;t++) {
-        for(r=0;r<7;r++){
-            if(t!=4) {
-                if(r!=1 && r!=2) console.log(chordLibrary.getChordCodeFromDetailsCode(n, t, r))
-            } else console.log(chordLibrary.getChordCodeFromDetailsCode(n, t, r))
+
+
+chordLibrary.getAllChords = () => {
+    const allChords = []
+    for(n=1;n<13;n++) {
+        for(t=0;t<6;t++) {
+            for(r=0;r<7;r++){
+                if (t!=3) {
+                    if(r!=1&&r!=2) allChords.push(chordLibrary.getChordNoteOnPiano(chordLibrary.getChordCodeFromDetailsCode(n, t, chordLibrary.chordRanges[r])))
+                } else allChords.push(chordLibrary.getChordNoteOnPiano(chordLibrary.getChordCodeFromDetailsCode(n, t, chordLibrary.chordRanges[r])))
+            }
         }
     }
+    return allChords
+}
+chordLibrary.getAvailableChords = scaleAllNote => {
+    const allChords = chordLibrary.getAllChords()
+    const scaleChords = []
+    var unfitChord = undefined;
+    for(i=0;i<allChords.length;i++) {
+        for(j=0;j<allChords[i].notes.length;j++) {
+            if(unfitChord != allChords[i]) {
+                for(k=0;k<scaleAllNote.length;k++) {
+                    if(allChords[i].notes[j]+12 === scaleAllNote[k]) {
+                        if(j===allChords[i].notes.length-1) {
+                            scaleChords.push(allChords[i])
+                        }
+                        break
+                    } else if(allChords[i].notes[j]+12 != scaleAllNote[k]) {
+                        if(scaleAllNote[k] >= 42) {
+                            unfitChord = allChords[i]
+                        }
+                    }
+                }
+            } else break
+        }
+    }
+    return scaleChords
 }

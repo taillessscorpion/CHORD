@@ -13,7 +13,6 @@ i {
 #app {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(71, 2, 0, 0.267);
 }
 
 .showPassword {
@@ -29,18 +28,20 @@ i {
 #appLogo {
     background-image: url('../images/logo.png');
     background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     height: 200px;
     width: 100%;
-    background-color: rgba(195, 201, 43, 0.2);
+    background-color: rgba(131, 253, 253, 0.3);
     border-radius: 10px;
     animation: logoEnd 2s ease-in-out;
     position: relative;
-    color: rgba(228, 228, 228, 0.8);
+    color: transparent
 }
 #appLogo:hover {
-    background-color: rgba(196, 201, 43, 0.6);
+    background-color: rgba(108, 176, 253, 0.7);
     animation: logoHover 2s ease-in-out;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 1);
 }
 #appName {
     position: absolute;
@@ -97,30 +98,109 @@ i {
     color: rgb(241, 241, 241);
 }
 
+#promtContainer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding-bottom: 30vh;
+    z-index: 99;
+}
+.promtWrapper {
+    display: flex;
+    font-weight: bolder;
+    width: 400px;
+    background-color: rgb(241, 241, 241);
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+.promtWrapper .promtMessage {
+    width: 300px;
+    text-align: center;
+    color: rgba(14, 14, 14, 0.753);
+}
+.promtWrapper .promtAnswer {
+    height: 40px;
+    width: 300px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.promtWrapper .promtAnswer .positiveAnswer {
+    color: rgba(0, 0, 255, 0.8);
+    cursor: pointer;
+    
+}
+.promtWrapper .promtAnswer .positiveAnswer:hover{
+    background-color: rgba(0, 0, 255, 0.8);
+    color: white;
+}
+.promtWrapper .promtAnswer .positiveAnswer:active{
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+.promtWrapper .promtAnswer .negativeAnswer {
+    color: rgb(255, 0, 0, 0.8);
+    cursor: pointer;
+}
+.promtWrapper .promtAnswer .negativeAnswer:hover {
+    background-color: rgb(255, 0, 0, 0.8);
+    color: white;
+}
+.promtWrapper .promtAnswer .negativeAnswer:active{
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
 
-
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(170, 170, 170, 0.5);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 93, 199, 0.5);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(35, 89, 190);
+    border-radius: 5px;
+}
 
 
 
 
 @keyframes logoHover {
     0% {
-        background-color: rgba(195, 201, 43, 0.2);
-        color: rgba(228, 228, 228, 0.8);
+        background-color: rgba(131, 253, 253, 0.3);
+        color: rgba(228, 228, 228, 0.3);
     }
     100% {
-        background-color: rgba(196, 201, 43, 0.6);
-        color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(108, 176, 253, 0.7);
+        color: rgba(255, 255, 255, 1);
     }
 }
 @keyframes logoEnd {
     0% {
-        background-color: rgba(196, 201, 43, 0.6);
-        color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(108, 176, 253, 0.7);
+        color: rgba(255, 255, 255, 1);
     }
     100% {
-        background-color: rgba(195, 201, 43, 0.2);
-        color: rgba(228, 228, 228, 0.8);
+        background-color: rgba(131, 253, 253, 0.3);
+        color: rgba(228, 228, 228, 0);
     }
 }
 @keyframes alertAttention {
@@ -191,4 +271,14 @@ i {
     100% {
         background-color: rgb(206, 0, 0);
     }
+}
+
+
+body {
+    background-color: rgba(0, 128, 128, 0.5);
+}
+#canvas {
+    width: 400px;
+    height: 100px;
+    border-radius: 10px;
 }

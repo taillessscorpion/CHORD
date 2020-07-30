@@ -1,5 +1,5 @@
 #noteMeterContainer .noteWrapper {
-    height: calc(100% / 65);
+    height: calc(100% / 53);
     max-width: 100%;
     display: flex;
     flex-flow: row-reverse nowrap;

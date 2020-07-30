@@ -1,0 +1,77 @@
+#mediaInputAnalize {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    color: rgb(204, 204, 204);
+}
+#mediaCloseBtn {
+    top: 5px;
+    left: 5px;
+}
+#mediaInputShow {
+    width: 400px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: rgb(5, 65, 134);
+}
+#mediaInputAnalize .leftContainer {
+    width: 400px;
+    height: 100%;
+}
+#mediaInputAnalize .rightContainer {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+#mediaInputSpeaker {
+    height: 100px;
+    width: 100%;
+    background-image: url(../images/findScreen/media/mediaInputSpeaker.png);
+    background-size: cover;
+    border-radius: 10px;
+    background-position: -10px;
+}
+#audioInput {
+    display: none;
+}
+#mediaInputSpeaker:hover {
+    background-color: rgba(255, 255, 255, 0.555);
+}
+#mediaInputAnalize .leftBotBar {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+#mediaInputAnalize .rightBotBar {
+    width: 100%;
+    flex-grow: 1;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+}
+#askForLastNote{
+    height: 100%;
+    width: 60%;
+}
+#askForLastNote input{
+    background-color: rgba(255, 255, 255, 0.637);
+    color: teal;
+    height: 100%;
+    width: 30px;
+    appearance: textfield;
+    font-size: 15px;
+    margin: 0;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+#askForLastNote input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

@@ -29,7 +29,7 @@
 #formRegister {
     max-height: 250px;
     height: 100%;
-    background-color: rgba(255, 210, 146, 0.3);
+    background-color: rgba(32, 102, 160, 0.3);
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;
@@ -49,22 +49,22 @@
     height: 30px;
     padding: 10px;
     outline: none;
-    border: 1px solid rgb(213, 124, 0, 0.5);
+    border: 1px solid rgba(131, 170, 253, 0.3);
     border-radius: 10px;
-    background-color: rgba(179, 104, 0, 0.5);
+    background-color: rgba(131, 253, 253, 0.3);
     color: rgb(223, 223, 223, 0.5);
     cursor: text;
     margin-left: 5%;
     font-size: 18px;
 }
 #formRegister input:focus {
-    border: 1px solid rgb(255, 197, 115);
-    background-color: rgba(179, 104, 0, 0.8);
+    border: 1px solid rgba(58, 150, 255, 1);
+    background-color: rgba(58, 150, 255, 0.8);
     color: rgb(223, 223, 223)
 }
 #formRegister .error {
     padding: 2px;
-    color: rgb(255, 0, 0);
+    color: rgb(240, 57, 57);
     background-color: rgba(0, 0, 0, 0.2);
     padding: 2px 10px;
     margin-left: 5%;
@@ -78,16 +78,16 @@
     height: 30px;
     padding: 1%;
     outline: none;
-    border: 1px solid rgb(213, 124, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.63);
     border-radius: 10px;
-    background-color: rgba(214, 61, 0, 0.637);
+    background-color: rgba(29, 135, 255, 0.6);
     color: rgb(223, 223, 223);
     margin-left: 55%;
     font-size: 18px;
 }
 #formRegister button:active {
     color: rgb(255, 255, 255);
-    background-color: rgb(255, 72, 0);
+    background-color: rgba(58, 150, 255, 0.7);
 }
 .registerContainer .question {
     background-color: rgba(0, 0, 0, 0.5);
@@ -97,10 +97,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 80%;
+    width: 100%;
+    padding: 0 30px;
 }
 #redirectToLogin {
-    color: rgb(255, 51, 0);
+    color: rgb(57, 149, 255);
     font-size: 30px;
     font-weight: bold;
     display: flex;

@@ -13,17 +13,18 @@
     left: 5px;
 }
 #pianoSoundBtn {
-    background-image: url(../images/pianoBtn.png);
+    background-image: url(../images/findScreen/keyboardBtn/pianoBtn.png);
     background-size: cover;
 }
 #guitarSoundBtn {
-    background-image: url(../images/guitarBtn.jpg);
+    background-image: url(../images/findScreen/keyboardBtn/guitarBtn.png);
     background-size: cover;
+    transform: rotate(180deg);
 }
 .keyboardFunctionBtn {
     margin-top: 10px;
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     border-radius: 4px;
     background-color: rgb(161, 161, 161);
     

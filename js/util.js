@@ -19,17 +19,17 @@ utils.getDataFromDocs = docs => {
     return docs.map(utils.getDataFromDoc)
 }
 
-utils.converseNumberToWord = (number, unit) => {
+utils.convertNumberToWord = (number, unit) => {
     // unit to respone an exactly word // unit should be 'a' or 'an'
     if (number === 0) {
         return 'none';
     } else if (number === 1) {
-        if(!unit) {
+        if (!unit) {
             return 'a'
         } else {
-            if(unit === 'a') {
+            if (unit === 'a') {
                 return 'a'
-            } else {return 'an'}
+            } else { return 'an' }
         }
     } else if (number === 2) {
         return 'a couple of'
@@ -57,23 +57,23 @@ utils.checkSingularOrPlurar = (number, unit) => {
 
 
 utils.getArrayFromPostionToPosion = (array, positionStart, posiotionEnd, positionDistance) => {
-    if(positionDistance === null) {positionDistance = 1}
+    if (positionDistance === null) { positionDistance = 1 }
     var newArray = [];
-    for(i=positionStart;i<posiotionEnd;i++) {
+    for (i = positionStart; i < posiotionEnd; i++) {
         newArray.push(array[i]);
     }
     return newArray
 }
 utils.arrayCollapseToString = (array) => {
     newString = '';
-    for(i=0;i<array.length;i++) {
+    for (i = 0; i < array.length; i++) {
         newString += array[i].toString()
     }
     return newString;
 }
 
 utils.convertDayToEnglish = (day) => {
-    if(day === 0) return 'Sunday'
+    if (day === 0) return 'Sunday'
     else if (day === 1) return 'Monday'
     else if (day === 2) return 'Tuesday'
     else if (day === 3) return 'Wednesday'
@@ -88,15 +88,15 @@ utils.getISOStringDate = () => {
 }
 utils.getYearsTwoLastNumber = (year) => {
     year = year.toString().split('');
-    if(year.length === 4) {
-        return Number(year[2] + year [3])
+    if (year.length === 4) {
+        return Number(year[2] + year[3])
     } else {
         console.log('utils.getYearsTwoLastNumber takes a wrong input')
     }
 }
 utils.fullfillDateMonth = (date) => {
     date = date.toString();
-    if(date.length === 1) {
+    if (date.length === 1) {
         return 0 + date
     } else if (date.length === 2) {
         return date
@@ -131,26 +131,26 @@ utils.countFromTpointToNowReturnHandledString = (timepoint) => {
     if (secondsLong === undefined || secondsLong === '') {
         return ''
     } else {
-        if(secondsLong < 60) {
+        if (secondsLong < 60) {
             return `${secondsLong} second${utils.checkSingularOrPlurar(secondsLong, 's')} ago`
         } else if (secondsLong < 3600) {
-            return `${Math.floor(secondsLong/60)} minute${utils.checkSingularOrPlurar(Math.floor(secondsLong/60), 's')} ago`
-        } else if(secondsLong < 86400) {
-            return `${Math.floor(secondsLong/3600)} hour${utils.checkSingularOrPlurar(Math.floor(secondsLong/3600), 's')} ago`
-        } else if(secondsLong < 2592000) {
-            return `${Math.floor(secondsLong/86400)} day${utils.checkSingularOrPlurar(Math.floor(secondsLong/86400), 's')} ago`
+            return `${Math.floor(secondsLong / 60)} minute${utils.checkSingularOrPlurar(Math.floor(secondsLong / 60), 's')} ago`
+        } else if (secondsLong < 86400) {
+            return `${Math.floor(secondsLong / 3600)} hour${utils.checkSingularOrPlurar(Math.floor(secondsLong / 3600), 's')} ago`
+        } else if (secondsLong < 2592000) {
+            return `${Math.floor(secondsLong / 86400)} day${utils.checkSingularOrPlurar(Math.floor(secondsLong / 86400), 's')} ago`
         } else {
             return utils.convertTimeFromISOString(timepoint);
         }
     }
 }
 utils.countFromTpointToNowReturnSeconds = (timepoint) => {
-    if(timepoint === undefined || timepoint === null) {
+    if (timepoint === undefined || timepoint === null) {
         return ''
     } else {
         const thatTime = new Date(timepoint);
         const now = new Date();
-        return Math.floor((now - thatTime)/1000);
+        return Math.floor((now - thatTime) / 1000);
     }
 }
 
@@ -164,7 +164,7 @@ utils.styleForImageBackgroundDiv = (div) => {
 }
 utils.getUrlFromBackground = (backgroundUrl) => {
     let newArray = Array.from(backgroundUrl);
-    let arrayOfUrl = utils.getArrayFromPostionToPosion(newArray, newArray.indexOf('"')+1, newArray.lastIndexOf('"'));
+    let arrayOfUrl = utils.getArrayFromPostionToPosion(newArray, newArray.indexOf('"') + 1, newArray.lastIndexOf('"'));
     return utils.arrayCollapseToString(arrayOfUrl);
 }
 
@@ -176,12 +176,32 @@ utils.capitalizeFirstCharacterInString = (string) => {
     if (typeof string !== 'string') return ''
     return string.charAt(0).toUpperCase() + string.slice(1)
 }
-
+utils.cutDuplicateSpaceInString = string => {
+    const charCodes = []
+    const handledCharCodes = []
+    let returnString = ''
+    for(let i = 0;i<string.length;i++) {
+        charCodes.push(string.charCodeAt(i))
+    }
+    for(let j =0;j<charCodes.length;j++) {
+        if(charCodes[j] === 32) {
+            if(charCodes[j-1] != 32) {
+                handledCharCodes.push(charCodes[j])
+            }
+        } else {
+            handledCharCodes.push(charCodes[j])
+        }
+    }
+    for(let h = 0; h<handledCharCodes.length;h++) {
+        returnString += String.fromCharCode(handledCharCodes[h])
+    }
+    return returnString
+}
 
 
 
 utils.plusOneTo = (number) => {
-    if(isNaN(number)) return ''
+    if (isNaN(number)) return ''
     return number++;
 }
 
@@ -189,5 +209,46 @@ utils.plusOneTo = (number) => {
 
 
 utils.getLogXOfY = (x, y) => {
-    return Math.log(y)/Math.log(x)
+    return Math.log(y) / Math.log(x)
+}
+
+utils.createDivWithClassName = className => {
+    const divElement = document.createElement('div')
+    divElement.className = className
+    return divElement
+}
+
+//// up to thirty
+utils.convertNumericalToWord = numerical => {
+    if(numerical === 1) return 'first'
+    else if(numerical === 2) return 'second'
+    else if(numerical === 3) return 'third'
+    else if(numerical === 4) return 'fourth'
+    else if(numerical === 5) return 'fifth'
+    else if(numerical === 6) return 'sixth'
+    else if(numerical === 7) return 'seventh'
+    else if(numerical === 8) return 'eighth'
+    else if(numerical === 9) return 'ninth'
+    else if(numerical === 10) return 'tenth'
+    else if(numerical === 11) return 'eleventh'
+    else if(numerical === 12) return 'twelveth'
+    else if(numerical === 13) return 'thirdteenth'
+    else if(numerical === 14) return 'fourteenth'
+    else if(numerical === 15) return 'fifteenth'
+    else if(numerical === 16) return 'sixteenth'
+    else if(numerical === 17) return 'seventeenth'
+    else if(numerical === 18) return 'eightteenth'
+    else if(numerical === 19) return 'nineteenth'
+    else if(numerical === 20) return 'twentieth'
+    else if(numerical === 21) return 'twenty first'
+    else if(numerical === 22) return 'twenty second'
+    else if(numerical === 23) return 'twenty third'
+    else if(numerical === 24) return 'twenty fourth'
+    else if(numerical === 25) return 'twenty fifth'
+    else if(numerical === 26) return 'twenty sixth'
+    else if(numerical === 27) return 'twenty seventh'
+    else if(numerical === 28) return 'twenty eighth'
+    else if(numerical === 29) return 'twenty ninth'
+    else if(numerical === 30) return 'thirtieth'
+    else return numerical
 }

@@ -1,6 +1,9 @@
 const noteLibrary = {};
-noteLibrary.semitone = Math.pow(2, 1 / 12)
-noteLibrary.noteFrequencyBase = 32.7
+// noteLibrary.semitone = Math.pow(2, 1 / 12)
+//////// A440 frequency NAZI's system
+// noteLibrary.noteFrequencyBase = 32.7
+//////// A432 natural frequency
+noteLibrary.noteFrequencyBase = 32
 noteLibrary.noteSpectrumBase = [
     { r: 69, g: 0, b: 71 },
     { r: 20, g: 0, b: 71 },
@@ -18,12 +21,10 @@ noteLibrary.noteSpectrumBase = [
 ];
 noteLibrary.semitoneSpectrum = (10 / 255)
 noteLibrary.noteLowestInGuitar = 17
+noteLibrary.frequencyTolerance = 1
 
 
-
-
-
-/// convert note name to note code 
+/// convert note name to note code
 /// note name is the full name of note including octave such as C#3 F6 ..
 //// note code is the number represents that note start from 0 and other side is C1
 noteLibrary.getNoteCodeFromFullName = noteFullName => {
@@ -55,11 +56,19 @@ noteLibrary.getNoteCodeFromDetails = (noteClassName, noteOctave) => {
     if(noteClassName === 'A#' || noteClassName === 'Bb') return 11 + (noteOctave - 1) * 12
     if(noteClassName === 'B') return 12 + (noteOctave - 1) * 12
 }
+
+
 //// noteCode = log{frequency/frequencyBase}(semitone) + 1
 //// frequency must be greater than or equal 31
+// noteLibrary.getNoteCodeFromFrequency = frequency => {
+//     return Math.floor(Math.log(frequency/noteLibrary.noteFrequencyBase)/Math.log(noteLibrary.semitone))+1
+// }
+//// noteCode = log{frequency/frequencyBase}(2) * 12
 noteLibrary.getNoteCodeFromFrequency = frequency => {
-    return Math.floor(Math.log(frequency/noteLibrary.noteFrequencyBase)/Math.log(noteLibrary.semitone))+1
+    const ratio = frequency/noteLibrary.noteFrequencyBase
+    return Math.floor(Math.log(ratio) *12 / Math.log(2))+ noteLibrary.frequencyTolerance
 }
+
 
 
 ///// just class name such as c c# ... without octave 
@@ -128,12 +137,24 @@ noteLibrary.getNoteOctave = noteCode => {
 noteLibrary.getNoteFullName = noteCode => {
     return noteLibrary.getNoteClassName(noteCode) + noteLibrary.getNoteOctave(noteCode)
 }
+
+
+
 //// return how many hertz is that note
 /// noteFrequency = noteFrequencyBase    *      semiTone            ^            (noteCode - 1)
 ///                  32.7hz (C1)             twelveth root of 2
+// noteLibrary.getNoteFrequency = noteCode => {
+//     return noteLibrary.noteFrequencyBase * Math.pow(noteLibrary.semitone, noteCode - 1)
+// }
+///// above is absolutely not right, follow this one below
 noteLibrary.getNoteFrequency = noteCode => {
-    return noteLibrary.noteFrequencyBase * Math.pow(noteLibrary.semitone, noteCode - 1)
+    return Math.round(noteLibrary.noteFrequencyBase * Math.pow(2, (noteCode)/12))
 }
+
+
+
+
+
 /// return an array with 3 children for rgb color platform
 /// in case we need get color for every single note, to compare each other
 noteLibrary.getNoteSpectrum = noteCode => {

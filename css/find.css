@@ -8,36 +8,10 @@
     justify-content: center;
     position: relative;
 }
-#mainContainer {
-    height: 100%;
-    width: 80vw;
-    position: absolute;
-    bottom: 0px;
-    background-image: linear-gradient(to top, rgba(162, 218, 255, 0.5), rgba(253, 247, 194, 0.8));
-    box-shadow: 0px 50vh 50vw 5vw rgba(162, 218, 255, 0.6), 0px -50vh 50vw 5vw rgba(253, 247, 194, 1);
-    background-size: cover;
-    z-index: 0;
-    display: flex;
-    flex-flow: column nowrap;
-    padding-top: 5vh;
-}
-#mainContainer .topMain{
-    height: 100px;
-    width: 100%;
-    background-color: white;
-    margin-bottom: 2vh;
-}
-#mainContainer .botMain{
-    flex-grow: 1;
-    width: 100%;
-    background-color: white;
-}
-#musicSheetContainer:focus-within {
-    z-index: 3;
-}
+
 
 #pianoKeyboardContainer {
-    width: 95vw;
+    width: calc(95vw);
     height: 150px;
     position: absolute;
     border-radius: 10px;
@@ -65,11 +39,11 @@
     height: auto;
 }
 #tempoMeterContainer{
-    height: 150px;
+    height: 180px;
     width: 130px;
     background-image: linear-gradient(rgb(50, 50, 50, 0.5), rgb(0, 0, 0, 0.8));
     right: 20px;
-    top: 45px;
+    top: 60px;
     padding: 5px;
     position: fixed;
     display: flex;
@@ -97,47 +71,26 @@
 }
 
 #mediaContainer{
-    height: calc(30vh - 45px);
-    width: 300px;
-    max-width: 30%;
-    background-color: rgba(155, 155, 155, 0.753);
+    max-width: calc(95vw);
+    width: 500px;
+    height: 150px;
+    max-width: 100%;
+    background-color: rgb(2, 68, 94, 0.8);
     position: fixed;
-    left: 0;
-    top: 45px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    z-index: 2;
-
-
-
-
-    opacity: 0;
+    bottom: 10px;
+    border-radius: 10px;
+    z-index: 4;
+    border: 2px solid rgb(1, 59, 73);
 }
-#missionTagContainer{
-    height: calc(70vh - 5px);
-    width: 250px;
-    max-width: 30%;
-    background-color: rgba(192, 189, 189, 0.753);
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    border-top-right-radius: 10px;
 
-    z-index: 2;
-    opacity: 0;
-}
-/* #missionTagContainer:hover {
-    z-index: 5;
-} */
 
 .findContainer .functionBtn {
     position: fixed;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     display: block;
     background-color: rgb(27, 123, 233);
-    top: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     z-index: 10;
 }
 .findContainer .functionBtn:hover {
@@ -151,31 +104,36 @@
 
 
 #infoBtn {
+    top: 10px;
     left: 5px;
     background-image: url(../images/infoBtn.png);
     background-size: cover;
 }
 
 #mediaBtn {
-    left: 40px;
+    top: 60px;
+    left: 5px;
     background-image: url(../images/mediaBtn.png);
     background-size: cover;
 }
 
 #keyboardBtn {
-    right: 105px;
+    top: 110px;
+    left: 5px;
     background-image: url(../images/keyboardBtn.png);
     background-size: cover;
 }
 
 #tempoBtn {
-    right: 70px;
-    background-image: url(../images/tempoMeterBtn.jpg);
+    top: 10px;
+    right: 60px;
+    background-image: url(../images/tempoMeterBtn.png);
     background-size: cover;
 }
 
 #frequencyBtn {
-    right: 35px;
+    top: 10px;
+    right: 10px;
     background-image: url(../images/frequencyMeterBtn.png);
     background-size: cover;
 }
@@ -186,6 +144,7 @@
     border-radius: 3px;
     height: 13px;
     line-height: 13px;
+    z-index: 9;
 }
 .closeBtn:hover {
     background-color: white;

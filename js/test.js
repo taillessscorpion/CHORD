@@ -17,115 +17,79 @@
 
 
 
-
-// // create the audio context
-const audioContext = new AudioContext();
-// create a buffer source node
-const sourceNode = audioContext.createBufferSource();
-// setup a analyzer
-const analyser = new AnalyserNode(audioContext, {
-    // fftSize: 64,
-    fftSize: 32768,
-    maxDecibels: -10,
-    minDecibels: -90,
-    smoothingTimeConstant: 0,
-});
-// Just wanna know how to determine which should be value of 'smoothingTimeConstant'
-// After searching google then have clicked and ...
-
-// and connect to destination
-sourceNode.connect(analyser)
-analyser.connect(audioContext.destination)
-
-
-// load the specified sound
-var request = new XMLHttpRequest();
-request.open('GET', "../sounds/LuaMauDen.mp3", true);
-// request.open('GET', "../sounds/guitar/A-2.ogg", true);
-request.responseType = 'arraybuffer';
-
-// When loaded decode the data
-request.onload = () => {
-    // decode the data
-    audioContext.decodeAudioData(request.response, buffer => {
-        // when the audio is decoded play the sound
-        sourceNode.buffer = buffer;
-        sourceNode.start();
+const songInput = document.getElementById('songInput')
+songInput.addEventListener("input", e => {
+    const audioInput = e.srcElement.files[0]
+    const url = URL.createObjectURL(audioInput);
+    // // create the audio context
+    const audioContext = new AudioContext();
+    // create a buffer source node
+    const sourceNode = audioContext.createBufferSource();
+    // setup a analyzer
+    const gainNode = audioContext.createGain();
+    const analyser = new AnalyserNode(audioContext, {
+        fftSize: 32768,
+        maxDecibels: -10,
+        minDecibels: -90,
+        smoothingTimeConstant: 0,
     });
-}
-request.send();
+    sourceNode.connect(analyser)
+    analyser.connect(gainNode)
+    gainNode.connect(audioContext.destination)
+    
+    console.log(audioContext.currentTime)
+    // load the specified sound
+    var request = new XMLHttpRequest();
+    request.open('GET', url, true);
+    request.responseType = 'arraybuffer';
 
-var bufferLength = analyser.frequencyBinCount
-var dataArray = new Uint8Array(bufferLength)
-
-
-
-const ctx = canvas.getContext('2d');
-var WIDTH = 1200, HEIGHT = 300;
-ctx.clearRect(0, 0, WIDTH, HEIGHT);
-function drawWaveForm() {
-    drawVisual = requestAnimationFrame(drawWaveForm);
-
-    // analyser.getByteFrequencyData(dataArray);
-    analyser.getByteTimeDomainData(dataArray);
-
-    ctx.fillStyle = 'rgb(225,225,225)';
-    ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-    var barWidth = (WIDTH / bufferLength) * 10;
-    var barHeight;
-    var x = 0;
-
-    for (var i = 0; i < bufferLength; i++) {
-        barHeight = dataArray[i];
-
-        ctx.fillStyle = `rgb(${barHeight*3},${barHeight/2},${barHeight/2})`
-        ctx.fillRect(x, HEIGHT/6, barWidth, barHeight);
-
-        x += barWidth + 1;
+    // When loaded decode the data
+    request.onload = () => {
+        // decode the data
+        audioContext.decodeAudioData(request.response, buffer => {
+            // when the audio is decoded play the sound
+            sourceNode.buffer = buffer;
+            sourceNode.start();
+        });
     }
-};
-function drawFrequencyBar() {
-    drawVisual = requestAnimationFrame(drawFrequencyBar);
+    request.send();
 
-    analyser.getByteFrequencyData(dataArray);
-    // console.log(dataArray[698])
-    var loudestSound = {
-        decibels: 0,
-        hz: 0,
-    };
-    for(i=0;i<bufferLength;i++) {
-        if(dataArray[i] > loudestSound.decibels) {
-            loudestSound.decibels = dataArray[i]
-            loudestSound.hz = i/2
-            decibel.push(loudestSound);
+    var bufferLength = analyser.frequencyBinCount
+    var dataArray = new Uint8Array(bufferLength)
+
+    const ctx = canvas.getContext('2d');
+    var canvasWidth = 2000, canvasHeight = 800;
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    function DrawFrequencyAnalize() {
+        drawVisual = requestAnimationFrame(DrawFrequencyAnalize);
+        gainNode.gain.setValueAtTime(1, audioContext.currentTime);
+        analyser.getByteFrequencyData(dataArray);
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = "rgb(10, 80, 124)";
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+        var barWidth = (canvasWidth / bufferLength) * 10;
+        var barHeight;
+        var x = 0;
+        for (var i = 0; i < bufferLength; i++) {
+            barHeight = dataArray[i];
+            ctx.fillStyle = `rgb(${barHeight},${150 + barHeight},${150 + barHeight*3})`
+            ctx.fillRect(x, canvasHeight, barWidth, -barHeight*4);
+            x += barWidth;
         }
     }
-    ctx.fillStyle = 'rgb(0,0,0)';
-    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+    DrawFrequencyAnalize()
+})
 
-    var barWidth = (WIDTH / bufferLength) * 2.5;
-    var barHeight;
-    var x = 0;
+// sourceNode.onended = () => {
+//     console.log(decibel)
+//     // dataJSON = JSON.stringify(decibel);
+//     // localStorage.setItem("testData", dataJSON);
+//     dataJSON = JSON.stringify(decibel);
+//     localStorage.setItem("testData1", dataJSON);
+// }
 
-    for (var i = 0; i < bufferLength; i++) {
-        barHeight = dataArray[i];
-
-        ctx.fillStyle = 'rgb(' + (barHeight + 200) + ',255,255)';
-        ctx.fillRect(x, HEIGHT - barHeight/2, barWidth, barHeight / 2);
-
-        x += barWidth + 1;
-    }
-}
-sourceNode.onended = () => {
-    console.log(decibel)
-    // dataJSON = JSON.stringify(decibel);
-    // localStorage.setItem("testData", dataJSON);
-    dataJSON = JSON.stringify(decibel);
-    localStorage.setItem("testData1", dataJSON);
-}
-drawWaveForm();
-console.log(analyser)
+// console.log(analyser)
 
 // dataLoaded = localStorage.getItem("test.json");
 // data = JSON.parse(dataLoaded);
@@ -205,7 +169,7 @@ console.log(analyser)
 // localStorage.setItem("test.json", dataJSON);
 
 
-
+document.addEventListener('keydown', e => {console.log(e)})
 
 
 
@@ -379,3 +343,7 @@ console.log(analyser)
 //         audioPlayer.src = stream;
 //     }
 // };
+
+
+
+

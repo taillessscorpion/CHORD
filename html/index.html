@@ -14,6 +14,8 @@
     <link rel="styleSheet" href="../css/tempoMeter.css">
     <link rel="styleSheet" href="../css/keyBoard.css">
     <link rel="styleSheet" href="../css/guitar.css">
+    <link rel="styleSheet" href="../css/mainSheet.css">
+    <link rel="styleSheet" href="../css/media.css">
 </head>
 
 <body>
@@ -23,14 +25,196 @@
 
         <div class="findContainer">
             <div id="mainContainer">
-                <div class="topMain"></div>
-                <div class="botMain"></div>
+                <div class="topMain">
+                    <div class="topMainChildren">
+                        <div id="grandChildContainer">
+                            <div class="topMainGrandChildren">
+                                <div id="mainClearBtn" class="Btn"style="background-image: url(../images/findScreen/mainBtn/clearBtn.png);"></div>
+                                <div id="mainEditBtn" class="Btn" style="background-image: url(../images/findScreen/mainBtn/editBtn.png);"></div>
+                                <div id="rejectMusicBtn" class="Btn"style="background-image: url(../images/findScreen/mainBtn/rejectBtn.png);"></div>
+                                <div id="saveMusicBtn" class="Btn"style="background-image: url(../images/findScreen/mainBtn/saveBtn.png);"></div>
+                            </div>
+                            <div class="topMainGrandChildren">
+                                <div id="mainPlayBtn" class="Btn"style="background-image: url(../images/findScreen/mainBtn/playBtn.png);"></div>
+                                <div id="mainRecordBtn" class="Btn"style="background-image: url(../images/findScreen/mainBtn/recordBtn.png);"></div>
+                                <div id="mainUpBtn" class="Btn"style="background-image: url(../images/findScreen/mainBtn/upBtn.png);"></div>
+                                <div id="mainDownBtn" class="Btn"style="background-image: url(../images/findScreen/mainBtn/downBtn.png);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topMainChildren">
+                        <div id="missionTagContainer">
+                            
+    
+
+
+
+                        </div>
+                    </div>
+                    <div class="topMainChildren">
+                        <div class="topMainGrandChildren">
+                            <div id="appStatus"></div>
+                        </div>
+                        <div class="topMainGrandChildren">
+                            <div class="songInfoTitle" style="border-top-left-radius: 7px; border-bottom-left-radius: 7px;">Gamme <span id="songGamme" class="songInfo">N/A</span></div>
+                            <div class="songInfoTitle">Tempo <span id="songTempo" class="songInfo">20</span></div>
+                            <div class="songInfoTitle" style="border-top-right-radius: 7px; border-bottom-right-radius: 7px;">Volume <span id="songVolume" class="songInfo">100</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="botMain">
+                    
+
+                    <!-- <input id='songsName' autocomplete="off" type="text" autofocus="true" spellcheck="false" placeholder="Song's name">
+                    <form id="lyrics">
+                        <textarea name="lyric" type="text" spellcheck="false" placeholder="Fill up this field with the lyric...&#10Please finish every single sentence with a dot.&#10Or type the next sentence on a new line.&#10Tips: Holding shift before press enter to add a new line."></textarea>
+                    </form> -->
+
+
+                    <!-- <input id='songsName' autocomplete="off" type="text" autofocus="true" spellcheck="false" placeholder="Song's name">
+                    <div id="songsContentShow">
+                        <div class='lyricsSentence'>
+                            <div class="lyricsTexts">
+                                <div class="lyricsWord">
+                                    <div class="wordsText">Humanity</div>
+                                </div>
+                                <div class="lyricsWord">
+                                    <div class="wordsText">is</div>
+                                </div>
+                                <div class="lyricsWord">
+                                    <div class="wordsText">a</div>
+                                </div>
+                                <div class="lyricsWord">
+                                    <div class="wordsText">is</div>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="lyrics">
+                            <textarea name="lyric" type="text" spellcheck="false" placeholder="Fill up this field with the lyric...&#10Please finish every single sentence with a dot.&#10Or type the next sentence on a new line.&#10Tips: Holding shift before press enter to add a new line."></textarea>
+                        </form>
+                    </div> -->
+                    
+
+
+                    <input id='songsName' type="text" spellcheck="false" placeholder="Song's name">
+                    <div id="songsContentShow">
+                        
+
+
+
+
+                        
+                        <div class='lyricsSentence'>
+                            <div class="lyricsTexts">
+                                <div class="lyricsWord">
+                                    <div class="wordsText">Humanity</div>
+                                    <div class="wordsNotes">
+                                        <div class="wordsNote">
+                                            <input id='191nt' type='text' maxlength="1" placeholder="N">
+                                        </div>
+                                    </div>
+                                    <div class="noteChecks">
+                                        <input type="checkbox">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lyricsChords">
+                                <div class="lyricsContinuousChord">...<div class="functionBtn">-</div></div>
+                                <div class="lyricsChord">G<div class="functionBtn">+</div></div>
+                                <div class="lyricsChord">G</div>
+                            </div>
+                            <div class="modelChooseChord">
+                                <div class="recommendChord choosen">G</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+                                <div class="recommendChord">C</div>
+                                <div class="recommendChord">Am</div>
+
+                            </div>
+                        </div>
+                        
+                        
+                        <div class='lyricsSentence'>
+                            <div class="lyricsTexts">
+                                <div class="lyricsWord">
+                                    <div class="wordsText">Humanity</div>
+                                </div>
+                                <div class="lyricsWord">
+                                    <div class="wordsText">is</div>
+                                </div>
+                                <div class="lyricsWord">
+                                    <div class="wordsText">a</div>
+                                </div>
+                                <div class="lyricsWord">
+                                    <div class="wordsText">is</div>
+                                </div>
+                            </div>
+                            <div class="lyricsChordsTime">
+                                <form class="chordStart">Start play at: 
+                                    <input name="mins" type="number" min="0" max="99" placeholder="min">
+                                    <input name="secs" type="number" min="0" max="59" placeholder="sec">
+                                </form>
+                                <form class="chordEnd">
+                                    Finish at: 
+                                    <input name="mins" type="number" min="0" max="99" placeholder="min">
+                                    <input name="secs" type="number" min="0" max="59" placeholder="sec">
+                                </form>
+                            </div>
+                        </div>
+
+
+                        
+                    </div>
+
+                </div>
 
             </div>
-            <div id="mediaContainer"></div>
-            <div id="missionTagContainer"></div>
+
+            <!-- <div id="mediaContainer">
+                <i id="mediaCloseBtn" class="fa fa-window-close closeBtn" aria-hidden="true"></i>
+                <div id="mediaInputAnalize">
+                    <div class="leftContainer">
+                        <canvas id="mediaInputShow" width="1200px" height="800px"></canvas>
+                        <div class="leftBotBar">
+                                <form id="askForLastNote">Last note start play at: 
+                                    <input name="mins" type="number" min="0" max="99" placeholder="min">
+                                    <input name="secs" type="number" pattern="\d*" min="0" max="59" placeholder="sec"></form>
+                            <div id="playerCurrentTime">0:00/04:13</div>
+                        </div>
+                    </div>
+                    <div class="rightContainer">
+                        <div id='mediaInputSpeaker'>
+                            <input id='audioInput' type='file' accept="audio/*">
+                        </div>
+                        <div class="rightBotBar">100%</div>
+                    </div>
+                </div>
+            </div> -->
+            
+
+
             <div id="infoBtn" title="User's information" class="functionBtn"></div>
-            <div id="mediaBtn" title="User's information" class="functionBtn"></div>
+            <div id="mediaBtn" title="Media player" class="functionBtn"></div>
             <div id="keyboardBtn" title="Piano keyboard" class="functionBtn"></div>
             <div id="tempoBtn" title="Tempo meter" class="functionBtn"></div>
             <div id="frequencyBtn" title="Note meter" class="functionBtn"></div>
@@ -41,7 +225,19 @@
         </div>
 
 
-        <!-- <div class="loginContainer">
+
+        <!-- <div id="promtContainer">
+            <div class="promtWrapper">
+                <div class="promtMessage">Are you fuckin sure</div>
+                <div class="promtAnswer">
+                    <div class="negativeAnswer">Hell no</div>
+                    <div class="positiveAnswer">Of cause</div>
+                </div>
+            </div>
+        </div> -->
+
+<!-- 
+        <div class="loginContainer">
             <div class="loginForm">
                 <div id="appLogo"><div id="appName">CHORD</div><div id="appSlogan">Share your music, share your life</div></div>
                 <div id="formLoginContainer">
@@ -66,9 +262,9 @@
             <div class="alert" id="alertTitle">A</div>
         </div> -->
 
+<!-- 
 
-
-        <!-- <div class="registerContainer">
+        <div class="registerContainer">
             <div class="registerForm">
                 <div id="appLogo"><div id="appName">CHORD</div><div id="appSlogan">Share your music, share your life</div></div>
                 <div id="formRegisterContainer">
@@ -100,8 +296,8 @@
         <div id="alertWrapper">
             <div class="alert">ALERT</div>
             <div class="alert" id="alertTitle">A</div>
-        </div> -->
-
+        </div>
+ -->
 
 
 
@@ -109,16 +305,15 @@
 
 
     </div>
+    <script src="../js/util.js"></script>
     <script src="../js/CHORDLibrary/noteLibrary.js"></script>
     <script src="../js/CHORDLibrary/chordLibrary.js"></script>
     <script src="../js/CHORDLibrary/tempoMeterLibrary.js"></script>
-    <script src="../js/CHORDLibrary/frequencyMeterLibrary.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/sound.js"></script>
     <script src="../js/view.js"></script>
     <script src="../js/controller.js"></script>
     <script src="../js/model.js"></script>
-    <script src="../js/index.js"></script>
-    <script src="../js/util.js"></script>
+    <!-- <script src="../js/index.js"></script> -->
 </body>
 </html>
